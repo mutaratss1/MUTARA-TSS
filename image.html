@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MUTARA Technical Secondary School</title>
   <style>
-    body {
+      body {
       font-family: Arial, sans-serif;
       margin: 0; padding: 0;
       line-height: 1.6;
@@ -98,39 +98,135 @@
       <a href="#programs">Programs</a>
       <a href="#admissions">Admissions</a>
       <a href="#news">News</a>
-      <a href="image.html">Gallery</a>
+      <a href="#gallery">Gallery</a>
       <a href="#contact">Contact</a></nav>
   </header>
+ <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      text-align: center;
+      margin: 0;
+      padding: 50px;
+    }
 
-  <!-- Hero Section -->
-  <section class="hero" id="home" color="black">
-  <h2><font color="blue">Empowering Students with Skills for a Brighter Future</font></h2>
-    <p><font color="black">Welcome to MUTARA Technical Secondary School</font></p>
-  </section>
+    .slider {
+      position: relative;
+      max-width: 600px;
+      margin: auto;
+    }
 
-  <!-- About Us -->
-  <section class="section" id="about">
-    <h2>About Us</h2>
-    <p>
-      MUTARA Technical Secondary School (MUTARA TSS) is a center of excellence in technical and vocational education.
-      We are committed to preparing students with practical skills, academic knowledge, and values that enable them to succeed in higher education and the job market.
-    </p>
-  </section>
-  <section class="section" id="home" color="black">
-    <h2><font color="blue">Mission</font></h2>
-    <p>MUTARA Technical Secondary School mission is to give high quality Technical and Vocational Education and Training that guarantees our graduates opportunities for career advancement in the global economy. </p>
-  </section>
-  <section class="section" id="home" color="black">
-    <h2><font color="blue">Vision</font></h2>
-    <p>MUTARA Technical Secondary School vision is to be the premier Vocational Training Center in Rwanda and the Region.</p>
-  </section>
-  <section class="section" id="home" color="black">
-    <h2>MUTARA Technical Secondary School values are:</h2>
-    <p><font color="blue">Ownership:</font> We all act as responsibly and treat school’s assets as our own. We behave with the school’s long term success in mind.</p>
-    <p><font color="blue">Integrity:</font> We always try to do the right thing, we are honest and straight-forward with each other and our stakeholders.</p>
-    <p><font color="blue">Customer driven:</font> We consider our customers and stakeholders in all we do, and treat them with care at all times.</p>
-  <p><font color="blue"> Desire to improve:</font> We try to be creative in whatever we do and wherever we go.</p>
-  </section>
+    .slides {
+      display: none;
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    /* Arrows */
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 12px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 22px;
+      border-radius: 3px;
+      user-select: none;
+      background: rgba(0,0,0,0.5);
+    }
+
+    .next {
+      right: 0;
+    }
+
+    .prev:hover, .next:hover {
+      background: rgba(0,0,0,0.8);
+    }
+
+    /* Dots for navigation */
+    .dots {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .dot {
+      cursor: pointer;
+      height: 12px;
+      width: 12px;
+      margin: 0 4px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .active, .dot:hover {
+      background-color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Welcome to our Gallery</h2>
+
+  <div class="slider">
+    <img class="slides" src="ok1.jpg" alt="Image 1">
+    <img class="slides" src="ok2.jpg" alt="Image 2">
+    <img class="slides" src="ok3.jpg" alt="Image 3">
+	 <img class="slides" src="ok4.jpg" alt="Image 1">
+    <img class="slides" src="ok5.jpg" alt="Image 2">
+    <img class="slides" src="ok6.jpg" alt="Image 3">
+	 <img class="slides" src="ok7.jpg" alt="Image 1">
+    <img class="slides" src="ok8.jpg" alt="Image 2">
+    <img class="slides" src="ok9.jpg" alt="Image 3">
+	 <img class="slides" src="ok10.jpg" alt="Image 1">
+    <img class="slides" src="ok11.jpg" alt="Image 2">
+    <img class="slides" src="ok12.jpg" alt="Image 3">
+   
+
+    <!-- Arrows -->
+    <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+    <a class="next" onclick="changeSlide(1)">&#10095;</a>
+  </div>
+
+  <!-- Dots -->
+  <div class="dots">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+    <span class="dot" onclick="currentSlide(4)"></span>
+  </div>
+
+  <script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function changeSlide(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("slides");
+      let dots = document.getElementsByClassName("dot");
+      if (n > slides.length) { slideIndex = 1 }
+      if (n < 1) { slideIndex = slides.length }
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+    }
+  </script>
  
   <!-- Programs Offered -->
   <section class="section programs" id="programs">
